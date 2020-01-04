@@ -1,0 +1,21 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'todo/css/bootstrap.min.css' %}" >
+    {% block extra_css %} {% endblock %}
+    <title>{% block title %} TodoList {% endblock %}{</title>
+</head>
+<body>
+    <div class="container"/>
+        {% block content %}
+        {{ content }}
+        {% endblock %}
+    </div>
+    <script src="{% static 'todo/js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'todo/js/bootstrap.bundle.min.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

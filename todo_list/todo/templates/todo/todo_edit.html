@@ -1,0 +1,25 @@
+{% extends "todo/base.html"%}
+{% load bootstrap4 %}
+
+{% block title %} タスクの編集 {% endblock title %}
+
+{% block content %}
+    <h4 class="mt-4 mb-5 border-bottom">タスクの編集</h4>
+
+    {% if todo_id %}
+    <form action="{% url 'todo:todo_edit' todo_id=todo_id %}" method="post">
+    {% else %}
+    <form action="{% url 'todo:todo_add' %}" method="post">
+    {% endif %}
+        {% csrf_token %}
+        {% bootstrap_form form layout='horizontal' %}
+        <div class="form-group row">
+            <div class="offset-md-3 col-md-9">
+                <button type="submit" class="btn btn-primary">送信</button>
+            </div>
+        </div>
+    </form>
+
+    <a href="{% url 'todo:todo_list_view' %}" class="btn btn-secondary btn-sm">戻る</a>
+
+{% endblock content %}
